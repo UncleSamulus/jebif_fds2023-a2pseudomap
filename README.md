@@ -14,5 +14,5 @@ cargo build --release
 ```
 
 ```bash
-./target/nounoursmap -g ./data/genomes.fasta -r reads.fasta
+./target/release/nounoursmap --genomes ./data/genomes.fasta --reads ./data/reads.fasta
 ```
