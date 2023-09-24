@@ -13,7 +13,7 @@ pub fn compter_read(genome: &[u8], read: &[u8]) -> i32 {
     // Pour chaque position du génome, 
     // on extrait une partie de la séquence
     // et on la compare au read
-    for i in 0..(genome.len() - read.len()) {
+    for i in 0..(genome.len() - read.len()+1) {
         let sub_sequence = &genome[i..(i+read.len())];
         if eq_simpler(sub_sequence, read) {
             count += 1; // On ajoute 1 au compteur
@@ -49,7 +49,7 @@ fn eq_simpler(seq1: &[u8], seq2: &[u8]) -> bool {
 /// sont retrouvés dans le génome
 pub fn trouver_positions(genome: &[u8], read: &[u8]) -> Vec<usize> {
     let mut positions: Vec<usize> = Vec::new();
-    for i in 0..(genome.len() - read.len()) {
+    for i in 0..(genome.len() - read.len()+1) {
         let sub_sequence = &genome[i..(i+read.len())];
         if eq_simpler(sub_sequence, read) {
             positions.push(i);
